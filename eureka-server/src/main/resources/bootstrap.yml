@@ -1,0 +1,41 @@
+server:
+  port: 8765
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    inet-utils:
+      preferredNetworks:
+        - 192.168.1
+        - 10.163
+        - 10.31
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jywm551/ConfigRepo.git
+        prefix: /config
+      label: master
+  security:
+    user:
+      name: yu
+      password: tian6xia6wu6di
+management:
+  endpoints:
+    web:
+      path-mapping:
+        health: /ping
+info:
+  component: Config Server

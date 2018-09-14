@@ -10,7 +10,7 @@ target/
 .springBeans
 
 ### IntelliJ IDEA ###
-.idea
+/.idea/
 *.iws
 *.iml
 *.ipr
@@ -23,7 +23,7 @@ dist/
 nbdist/
 .nb-gradle/
 ### Maven template
-target/
+*/target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
